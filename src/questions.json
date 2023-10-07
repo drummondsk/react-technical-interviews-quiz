@@ -1,0 +1,14 @@
+{
+    "questions": [
+        {
+            "question": "Which of the following is the most appropriate data strucure to print a list of elements in reverse order? ", 
+            "answer": ["queue", "stack", "heap", "binary tree"], 
+            "correctAnswerIdx": 1
+        }, 
+        {
+            "question": "In a binary tree, every node has exactly ___ children? ", 
+            "answer": ["0", "1", "2", "3"], 
+            "correctAnswerIdx": 2
+        }
+    ]
+}
