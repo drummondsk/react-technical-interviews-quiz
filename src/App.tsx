@@ -1,6 +1,7 @@
 
 import styles from './App.module.scss';
 import QuesitonComp from './components/Questions';
+import Reset from './components/Reset';
 import StatBar from './components/StatBar';
 import questions from './questions.json'
 import { Questions } from './types';
@@ -15,16 +16,32 @@ function App() {
 
     const onSubmit = (correct: boolean) => {
         if (correct) setCorrectAnswers(correctAnswers + 1);
-        else setInCorrectAnswers(incorrectAnswers +1);
+        else setInCorrectAnswers(incorrectAnswers + 1);
 
         setwaitingToAdvance(true);
     };
-   
+
     const advavnceOnClick = () => {
         setwaitingToAdvance(false);
         if (allQuestions.questions.length >= currentQuestionIdx)
             setCurrentquestionIdx(currentQuestionIdx + 1);
     };
+
+    const reset = () => {
+        setCurrentquestionIdx(0);
+        setCorrectAnswers(0);
+        setInCorrectAnswers(0);
+        setwaitingToAdvance(false);
+    };
+
+    if (currentQuestionIdx >= allQuestions.questions.length)
+        return (
+            <Reset
+                totalQuestions={allQuestions.questions.length}
+                correctQuestions={correctAnswers}
+                onPress={reset}
+            />
+        );
 
     return (
         <div className={styles.app}>
@@ -38,7 +55,10 @@ function App() {
                 question={allQuestions.questions[currentQuestionIdx]}
                 onSubmit={onSubmit}
             />
-            {waitingToAdvance && <button onClick={advavnceOnClick}>Next</button>}
+            {waitingToAdvance && 
+                <button onClick={advavnceOnClick} className={styles.appButton}>
+                    Next
+                </button>}
         </div>
     );
 }
