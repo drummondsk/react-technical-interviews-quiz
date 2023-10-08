@@ -1,9 +1,14 @@
 .stat-container {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     padding: 10px;
     border: 1px solid #100101;
     background-color: #051026;
-    color: #7195F4;
+    color: #FFFFFF;
     font-family: Verdana, sans-serif;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
 }
