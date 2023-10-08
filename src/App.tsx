@@ -9,8 +9,22 @@ import { useState } from 'react';
 function App() {
     const allQuestions = questions as Questions;
     const [currentQuestionIdx, setCurrentquestionIdx] = useState(0)
-    const [correctAnswers, setCorrectAnswer] = useState(0)
-    const [incorrectAnswers, setInCorrectAnswer] = useState(0)
+    const [correctAnswers, setCorrectAnswers] = useState(0)
+    const [incorrectAnswers, setInCorrectAnswers] = useState(0)
+    const [waitingToAdvance, setwaitingToAdvance] = useState(false)
+
+    const onSubmit = (correct: boolean) => {
+        if (correct) setCorrectAnswers(correctAnswers + 1);
+        else setInCorrectAnswers(incorrectAnswers +1);
+
+        setwaitingToAdvance(true);
+    };
+   
+    const advavnceOnClick = () => {
+        setwaitingToAdvance(false);
+        if (allQuestions.questions.length >= currentQuestionIdx)
+            setCurrentquestionIdx(currentQuestionIdx + 1);
+    };
 
     return (
         <div className={styles.app}>
@@ -22,8 +36,9 @@ function App() {
             />
             <QuesitonComp
                 question={allQuestions.questions[currentQuestionIdx]}
-                onSubmit={() => { }}
+                onSubmit={onSubmit}
             />
+            {waitingToAdvance && <button onClick={advavnceOnClick}>Next</button>}
         </div>
     );
 }
