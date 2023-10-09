@@ -55,11 +55,10 @@ function App() {
                 question={allQuestions.questions[currentQuestionIdx]}
                 onSubmit={onSubmit}
             />
-            {waitingToAdvance && 
+            {true &&
                 <button onClick={advavnceOnClick} className={styles.appButton}>
                     Next
-                </button>}
-        </div>
+                </button>}</div>
     );
 }
 
