@@ -7,7 +7,7 @@ type Props = {
 }
 
 function QuesitonComp(props: Props) {
-    return <div>
+    return <div className={Questions_module['ques-container']}>
         <h3 className={Questions_module.question}>{props.question.question}</h3>
         <Answers question={props.question} onSubmit={props.onSubmit} />
     </div>

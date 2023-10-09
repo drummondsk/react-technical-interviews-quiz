@@ -5,10 +5,9 @@
 }
 
 .appButton {
-    display: grid;
+    display: block;
     padding: 5px;
-    margin: 5px;
-    width: 10%;
+    margin: 0px 5px 5px;
     font-family: Verdana, sans-serif;
     color: #FFFFFF;
     background-color: #05203B;
@@ -18,4 +17,8 @@
     &:hover {
         border: 1px solid #FFFFFF;
     }
+
+    align-items:start;
+    align-content:start;
+    width:9%;
 }
